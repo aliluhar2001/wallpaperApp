@@ -7,7 +7,9 @@ const fs = require('fs');
 const Wallpaper = require('./models/Wallpaper');  // Our MongoDB model for wallpapers
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
+
+
 
 
 // Sync wallpapers in uploads folder to MongoDB
@@ -97,5 +99,5 @@ app.get('/wallpapers', async (req, res) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
